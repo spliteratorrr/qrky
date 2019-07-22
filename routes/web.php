@@ -13,8 +13,14 @@
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 
 Route::get('/qr', 'QRCodeController@show');
 Route::get('/create', 'QRCodeController@create')->name('create');
+Route::get('/manage', 'QRCodeController@manage')->name('manage');
 Route::post('/preview', 'QRCodeController@preview');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+

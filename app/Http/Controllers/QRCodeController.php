@@ -13,7 +13,42 @@ class QRCodeController extends Controller
 
     public function create() {
         return view('create', [
-            'qrc' => QrkyUtils::get_qrky_code()
+            'qrc' => QrkyUtils::get_static_code(true, 'Preview')
+        ]);
+    }
+
+    public function manage() {
+
+        return view('manage', [
+            'qrcs' => [
+                [
+                    'name' => 'Oof', 
+                    'status' => 'Deployed',
+                    'id' => QrkyUtils::get_hash(), 
+                    'type' => 'Static', 
+                    'loc' => '11F, RM1106', 
+                    'desc' => 'Oofsie',
+                    'preview' => QrkyUtils::get_static_code(true, 'ewew31')
+                ],
+                [
+                    'name' => 'Jobert',
+                    'status' => 'Deployed',
+                    'id' => 'fkeose', 
+                    'type' => 'Static', 
+                    'loc' => '11F, RM1106', 
+                    'desc' => 'Oofsie',
+                    'preview' => QrkyUtils::get_static_code(true, 'fkeose')
+                ],
+                [
+                    'name' => 'Mekomeko',
+                    'status' => 'Deployed',
+                    'id' => 'wieuad', 
+                    'type' => 'Static', 
+                    'loc' => '11F, RM1106', 
+                    'desc' => 'Oofsie',
+                    'preview' => QrkyUtils::get_static_code(true, 'wieuad')
+                ]
+            ]
         ]);
     }
 

@@ -3,7 +3,7 @@
 namespace App\Helpers;
 
 use QrCode;
-use Hashids;
+use Hashids\Hashids;
 
 class QrkyUtils
 {
@@ -52,6 +52,7 @@ class QrkyUtils
      * Generate a unique hash ID
      */
     public static function get_hash() {
-        return Hashids::encode(time());
+        $hashids = new Hashids('', 5);
+        return $hashids->encode(time());
     }
 }
