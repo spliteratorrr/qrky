@@ -22,17 +22,17 @@ class QRCodeController extends Controller
         return view('manage', [
             'qrcs' => [
                 [
-                    'name' => 'Oof', 
+                    'name' => 'Guidance Feedback Form', 
                     'status' => 'Deployed',
                     'id' => QrkyUtils::get_hash(), 
                     'type' => 'Static', 
                     'loc' => '11F, RM1106', 
-                    'desc' => 'Oofsie',
+                    'desc' => 'Allows routine interviewees to instantly access the guidance feedback form after their interview.',
                     'preview' => QrkyUtils::get_static_code(true, 'ewew31')
                 ],
                 [
                     'name' => 'Jobert',
-                    'status' => 'Deployed',
+                    'status' => 'Not Deployed',
                     'id' => 'fkeose', 
                     'type' => 'Static', 
                     'loc' => '11F, RM1106', 

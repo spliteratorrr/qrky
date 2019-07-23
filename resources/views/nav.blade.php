@@ -24,10 +24,13 @@
                     <!-- Logged In -->
                         <div class="uk-button-group">
                             <a href="{{ route('create') }}">
-                                <button class="uk-button uk-button-default qrky-nav-btn uk-button-small">Create QR Code</button>
+                                <button class="uk-button uk-button-default qrky-nav-btn uk-button-small">Create QRC</button>
                             </a>
                             <a href="{{ route('manage') }}">
-                                <button class="uk-button uk-button-default qrky-nav-btn uk-button-small">Manage QR Codes</button>
+                                <button class="uk-button uk-button-default qrky-nav-btn uk-button-small">Manage QRC</button>
+                            </a>
+                            <a href="{{ route('manage') }}">
+                                <button class="uk-button uk-button-default qrky-nav-btn uk-button-small">Manage Groups</button>
                             </a>
                             <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                 <button class="uk-button uk-button-default qrky-nav-btn uk-button-small">Logout</button>
@@ -42,5 +45,4 @@
             </ul>
         </div>
     </nav>
-    <hr>
 </div>

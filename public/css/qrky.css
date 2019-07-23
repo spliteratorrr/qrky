@@ -10,6 +10,10 @@
     border-top: 3px solid #9F6DA6;
 }
 
+.uk-active .qrky-tab {
+    border-color: #9F6DA6 !important;
+}
+
 .qrky-icon {
     color: #9F6DA6;
 }
