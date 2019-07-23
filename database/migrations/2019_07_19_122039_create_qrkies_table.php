@@ -14,12 +14,19 @@ class CreateQrkiesTable extends Migration
     public function up()
     {
         Schema::create('qrkies', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->text('content');
-            $table->text('description');
-            $table->text('location');
-            $table->text('content');
+            // Primary text key
+            $table->text('id');
+
+            // Metadata
+            $table->string('name');
+            $table->string('content');
+            $table->integer('content_type');
+            $table->string('description')->nullable();
+            $table->string('location')->nullable();
+            
+            // Timestamps
             $table->timestamps();
+            $table->timestamp('deployed_at')->nullable();
         });
     }
 

@@ -10,7 +10,8 @@
         <div class="uk-navbar-right">
             <ul class="uk-navbar-nav uk-visible@m">
                 <li>
-                    @guest
+                    <!-- Logged Out -->
+                    @guest  
                         <div class="uk-button-group">
                             <a href="{{ route('login') }}">
                                 <button class="uk-button uk-button-default qrky-nav-btn uk-button-small">Login</button>
@@ -20,12 +21,22 @@
                             </a>
                         </div>
                     @else
+                    <!-- Logged In -->
                         <div class="uk-button-group">
                             <a href="{{ route('create') }}">
-                                <button class="uk-button uk-button-secondary uk-button-small">Create a QR Code</button>
+                                <button class="uk-button uk-button-default qrky-nav-btn uk-button-small">Create QR Code</button>
                             </a>
-                            <button class="uk-button uk-button-default uk-button-small">My QR Codes</button>
+                            <a href="{{ route('manage') }}">
+                                <button class="uk-button uk-button-default qrky-nav-btn uk-button-small">Manage QR Codes</button>
+                            </a>
+                            <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                <button class="uk-button uk-button-default qrky-nav-btn uk-button-small">Logout</button>
+                            </a>
                         </div>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+							{{ csrf_field() }}
+						</form>
                     @endguest
                 </li>
             </ul>

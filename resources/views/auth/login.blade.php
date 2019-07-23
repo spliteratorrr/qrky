@@ -18,15 +18,15 @@
 			<div class="uk-card-body">
 
 				<div class="uk-margin">
-					<label class="uk-form-label {{ $errors->has('email') ? ' uk-text-danger' : '' }}">
+					<label class="uk-form-label {{ $errors->has('username') ? ' uk-text-danger' : '' }}">
 						Username
 					</label>
 					<div class="uk-width-1-1 uk-inline">
-						<span class="uk-form-icon {{ $errors->has('email') ? ' uk-text-danger' : '' }}" uk-icon="icon: user"></span>
-						<input id="email" type="email" class="uk-input qrky-form {{ $errors->has('email') ? ' uk-form-danger' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
+						<span class="uk-form-icon {{ $errors->has('username') ? ' uk-text-danger' : '' }}" uk-icon="icon: user"></span>
+						<input id="username" type="text" class="uk-input qrky-form {{ $errors->has('username') ? ' uk-form-danger' : '' }}" name="username" value="{{ old('username') }}" required autofocus>
 					</div>
-					@if ($errors->has('email'))
-						<span class="uk-text-small uk-text-danger">{{ $errors->first('email') }}</span>
+					@if ($errors->has('username'))
+						<span class="uk-text-small uk-text-danger">{{ $errors->first('username') }}</span>
 					@endif
 				</div>
 

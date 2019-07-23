@@ -23,6 +23,13 @@
         @yield('content')
     </body>
 
+    <footer class="uk-section uk-section-small uk-section-muted uk-text-center">
+		<div class="uk-container">
+            <span class="uk-text-small uk-text-muted">An APPROJ1 Project by Team Quadro (1st Term 2019-2020) | Built with <a href="http://getuikit.com" title="Visit UIkit 3 site" target="_blank" data-uk-tooltip><span data-uk-icon="uikit" class="qrky-icon"></span></a></span>
+		</div>
+    </footer>
+    
+
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>
