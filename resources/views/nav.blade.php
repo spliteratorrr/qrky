@@ -7,6 +7,7 @@
             </a>
         </div>
         </div>
+
         <div class="uk-navbar-right">
             <ul class="uk-navbar-nav uk-visible@m">
                 <li>
@@ -24,12 +25,12 @@
                     <!-- Logged In -->
                         <div class="uk-button-group">
                             <a href="{{ route('create') }}">
-                                <button class="uk-button uk-button-default qrky-nav-btn uk-button-small">Create QRC</button>
+                                <button class="uk-button uk-button-default qrky-nav-btn uk-button-small">Create QRCs</button>
                             </a>
-                            <a href="{{ route('manage') }}">
-                                <button class="uk-button uk-button-default qrky-nav-btn uk-button-small">Manage QRC</button>
+                            <a href="{{ route('manage-qrcs-ug') }}">
+                                <button class="uk-button uk-button-default qrky-nav-btn uk-button-small">Manage QRCs</button>
                             </a>
-                            <a href="{{ route('manage') }}">
+                            <a href="{{ route('manage-grps') }}">
                                 <button class="uk-button uk-button-default qrky-nav-btn uk-button-small">Manage Groups</button>
                             </a>
                             <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
@@ -43,6 +44,9 @@
                     @endguest
                 </li>
             </ul>
+            <a class="uk-navbar-toggle uk-navbar-item uk-hidden@m" data-uk-toggle data-uk-navbar-toggle-icon href="#offcanvas-nav"></a>
         </div>
     </nav>
+
+    <hr>
 </div>

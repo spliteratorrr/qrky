@@ -24,6 +24,10 @@ class CreateQrkiesTable extends Migration
             $table->string('description')->nullable();
             $table->string('location')->nullable();
             
+            // Groupings
+            $table->bigInteger('group_id')->unsigned()->nullable();
+            $table->foreign('group_id')->references('id')->on('groups');
+
             // Timestamps
             $table->timestamps();
             $table->timestamp('deployed_at')->nullable();

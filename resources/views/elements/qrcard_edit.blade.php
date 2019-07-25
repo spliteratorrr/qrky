@@ -2,7 +2,7 @@
     <div class="uk-modal-dialog qrky-border">
 
         <div class="uk-modal-header">
-            <h2 class="uk-modal-title"><i class="fas fa-qrcode"></i> Edit Content...</h2>
+            <h2 class="uk-modal-title"><i class="fas fa-qrcode"></i> Edit QR Code...</h2>
         </div>
 
         <div class="uk-modal-body">
@@ -11,8 +11,8 @@
                     <div class="uk-card uk-card-default qrky-border">
                         <div class="uk-card-body">
                             <h4 class="uk-text-center">QR Code Information</h4>
-                            <ul class="uk-list uk-list-divider">
-                                    <div class="uk-column-1-2@m">
+                            
+                            <ul class="uk-list">
                                 <li>
                                     <span class="uk-text-meta uk-text-uppercase"><i class="fas fa-tag"></i> Name</span>
                                     <p class="uk-margin-remove-top">
@@ -49,7 +49,6 @@
                                         <input class="qrky-form qrky-edit-field uk-input uk-form-medium" type="text" value="{{$qrc['loc']}}">
                                     </p>
                                 </li>
-                                    </div>
                             </ul>
                         </div>
                     </div>
@@ -58,7 +57,11 @@
                     <div class="uk-card uk-card-default qrky-border" style="min-width: 200px; padding-top: 30px; padding-bottom: 1px;" class="uk-align-center">    
                         <h4 class="uk-text-center">Preview</h4>
                         <img id="preview" src="data:image/png;base64, {!! base64_encode($qrc['preview']) !!}" class="uk-align-center" style="max-width: 170px;" uk-img>
-                        <p class="uk-text-center"><i class="fas fa-hashtag"></i> ID <code style="color: #9F6DA6;">{{$qrc['id']}}</code></p>
+                        <p class="uk-text-center uk-margin-remove"><i class="fas fa-hashtag"></i><code style="color: #9F6DA6;">{{$qrc['id']}}</code></p>
+                        <hr>
+                        <p class="uk-text-center">
+                            <span class="uk-text-muted"> <i class="fas fa-eye" style="font-size: 24px"></i><br>Total scans: -<br>Unique scans: -</span>
+                        </p>
                     </div>
                 </div>
             </div>

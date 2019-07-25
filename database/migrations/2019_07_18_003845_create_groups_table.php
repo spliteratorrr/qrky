@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateQrkyGroupsTable extends Migration
+class CreateGroupsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateQrkyGroupsTable extends Migration
      */
     public function up()
     {
-        Schema::create('qrky_groups', function (Blueprint $table) {
+        Schema::create('groups', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->text('name');
             $table->text('join_code');
             $table->text('description');
-            $table->timestamps();
+            $table->timestamps(); 
         });
     }
 
@@ -29,6 +29,6 @@ class CreateQrkyGroupsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('qrky_groups');
+        Schema::dropIfExists('groups');
     }
 }

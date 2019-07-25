@@ -6,7 +6,7 @@
                         <h4>{{$qrc['name']}}</h4>
                     </div>
                     
-                    <div class="uk-card-badge uk-margin-remove uk-label qrky-bg" style="text-transform: none;">
+                    <div class="uk-card-badge uk-margin-remove uk-label qrky-bg uk-visible@s" style="text-transform: none;">
                         <i class="fas fa-hashtag"></i>{{$qrc['id']}}
                     </div>
                 </div>
@@ -20,7 +20,8 @@
             </div>
 
             <div class="uk-card-footer">
-                <a href="#modal-{{$qrc['id']}}" class="uk-button uk-button-text" uk-toggle="target: #modal-{{$qrc['id']}}"><i class="fas fa-pencil-alt"></i> Edit Content</a>
+                <a href="#" class="uk-button uk-button-text"><i class="fas fa-eye"></i> Visit</a>
+                <a href="#modal-{{$qrc['id']}}" class="uk-button uk-button-text uk-margin-left" uk-toggle="target: #modal-{{$qrc['id']}}"><i class="fas fa-pencil-alt"></i> Edit QRC</a>
             </div>
             
         </div>        

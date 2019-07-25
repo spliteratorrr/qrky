@@ -16,9 +16,16 @@ Route::get('/', function () {
 })->name('welcome');
 
 Route::get('/qr', 'QRCodeController@show');
-Route::get('/create', 'QRCodeController@create')->name('create');
-Route::get('/manage', 'QRCodeController@manage')->name('manage');
-Route::post('/preview', 'QRCodeController@preview');
+
+Route::group(['middleware' => ['auth']], function() {
+    Route::get('/create', 'QRCodeController@create')->name('create');
+
+    Route::get('/qrcs', 'QRCodeController@manage_qrcs_ug')->name('manage-qrcs-ug');
+    Route::get('/qrcs/{id}', 'QRCodeController@manage_qrcs_g')->name('manage-qrcs-g');
+    
+    Route::get('/groups', 'QRCodeController@manage_grps')->name('manage-grps');
+    Route::post('/preview', 'QRCodeController@preview');
+});
 
 Auth::routes();
 

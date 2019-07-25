@@ -31,3 +31,13 @@
 .qrky-bg {
     background-color: #9F6DA6;
 }
+
+/** Secondary Colors **/
+
+.qrky-sec-border {
+    border-top: 3px solid #DC8FAC;
+}
+
+.qrky-sec {
+    color: #DC8FAC;
+}

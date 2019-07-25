@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 use App\User;
 
-class QrkyGroup extends Model {
+class Group extends Model {
     
     /**
      * Users pivot table

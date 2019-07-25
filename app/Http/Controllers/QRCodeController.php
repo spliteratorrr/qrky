@@ -17,9 +17,12 @@ class QRCodeController extends Controller
         ]);
     }
 
-    public function manage() {
+    /**
+     * Manage ungrouped QRCs view.
+     */
+    public function manage_qrcs_ug() {
 
-        return view('manage', [
+        return view('manage_qrc_ug', [
             'qrcs' => [
                 [
                     'name' => 'Guidance Feedback Form', 
@@ -52,6 +55,32 @@ class QRCodeController extends Controller
         ]);
     }
 
+    /**
+     * Manage grouped QRCs view.
+     */
+    public function manage_qrcs_g(Request $request) {
+        $id = $request->id;
+
+        return view('manage_qrc_g', [
+            'qrcs' => []
+        ]);
+    }
+
+    public function manage_grps() {
+        return view('manage_grp', [
+            'grps' => [
+                [
+                    'name' => 'Guidance Office',
+                    'id' => '1',
+                    'desc' => 'A group dedicated for guidance office faculty members.'
+                ]
+            ]
+        ]);
+    }
+
+    /**
+     * Generates a QR code preview.
+     */
     public function preview(Request $request) {
         $type = $request->input('cType');
         $content = $request->input('c');

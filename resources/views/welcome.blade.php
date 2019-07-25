@@ -29,8 +29,8 @@
             @if (route('login'))
                 <div class="links uk-position-top-right uk-position-small">
                     @guest
-                        <a href="{{ route('login') }}" class="uk-text-bold uk-text-primary uk-button uk-button-default uk-box-shadow-small">Login</a>
-                        <a href="{{ route('register') }}" class="uk-text-bold uk-text-primary uk-button uk-button-default uk-box-shadow-small">Register</a>
+                        <a href="{{ route('login') }}" class="uk-text-bold uk-button uk-button-default uk-box-shadow-small">Login</a>
+                        <a href="{{ route('register') }}" class="uk-text-bold uk-button uk-button-default uk-box-shadow-small">Register</a>
                     @else
                         <a href="{{ url('/home') }}" class="uk-text-bold uk-button uk-button-default uk-box-shadow-small">Home</a>
                     @endguest
@@ -38,8 +38,9 @@
             @endif
 
             <div class="uk-align-center">
-                <div class="title uk-animation-slide-bottom uk-text-primary">
-                    {{ config('app.name', 'Laravel UIkit 3') }}
+                <div class="title uk-animation-slide-bottom">
+                    <img class="uk-img uk-align-center" src="{{ asset('img/logo.png')}}" draggable="false" alt="Logo">
+                    <p class="uk-text-center" style="font-size: 64px;">Project Qrky</p>
                 </div>
             </div>
         </div>
