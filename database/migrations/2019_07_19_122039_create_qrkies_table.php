@@ -24,6 +24,10 @@ class CreateQrkiesTable extends Migration
             $table->string('description')->nullable();
             $table->string('location')->nullable();
             
+            // Ownership
+            $table->bigInteger('owner_id')->unsigned();
+            $table->foreign('owner_id')->references('id')->on('users');
+            
             // Groupings
             $table->bigInteger('group_id')->unsigned()->nullable();
             $table->foreign('group_id')->references('id')->on('groups');

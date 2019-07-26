@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Qrky;
+use App\Group;
 use QrkyUtils;
 
 class QRCodeController extends Controller
@@ -20,7 +22,11 @@ class QRCodeController extends Controller
     /**
      * Manage ungrouped QRCs view.
      */
-    public function manage_qrcs_ug() {
+    public function manage_qrcs_ug(Request $req) {
+        $user = auth()->user();
+        $uid = $user->id;
+        // Retrieve QRCs owned by the user
+        $qrcs = Qrky::where('owner_id', $uid)->get();
 
         return view('manage_qrc_ug', [
             'qrcs' => [
@@ -59,8 +65,12 @@ class QRCodeController extends Controller
      * Manage grouped QRCs view.
      */
     public function manage_qrcs_g(Request $request) {
-        $id = $request->id;
+        $join_code = $request->id;
 
+        // Retrieve QRCs within this group.
+        $gid = Group::where('join_code', $join_code)->first();
+        $qrcs = Qrky::where('group_id', $gid)->get();
+        
         return view('manage_qrc_g', [
             'qrcs' => []
         ]);

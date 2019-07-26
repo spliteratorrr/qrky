@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use App\QrkyGroup;
+use App\Group;
 
 class User extends Authenticatable
 {
@@ -41,7 +41,7 @@ class User extends Authenticatable
     /**
      * Qrky groups pivot table.
      */
-    public function qrky_groups() {
-        return $this->belongsToMany(QrkyGroup::class);
+    public function groups() {
+        return $this->belongsToMany(Group::class);
     }
 }
