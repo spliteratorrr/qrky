@@ -62,7 +62,7 @@
                                         <i class="fas fa-quote-right"></i> Description
                                     </span>
                                     <p class="uk-margin-remove-top">
-                                        <textarea class="qrky-form qrky-edit-field uk-textarea" id="form-stacked-area" rows="2" placeholder="Description of this QR code...">{{$qrc['desc']}}</textarea>
+                                        <textarea class="qrky-form qrky-edit-field uk-textarea" id="form-stacked-area" rows="1" placeholder="Description of this QR code...">{{$qrc['desc']}}</textarea>
                                     </p>
                                 </li>
                                 
@@ -87,9 +87,11 @@
                             <span class="uk-visible@m">Preview</span>
                             <span class="uk-hidden@l">{{$qrc['name']}}</span>
                         </h4>
-                        <img id="preview" class="uk-align-center" src="data:image/png;base64, {!! base64_encode($qrc['preview']) !!}" style="max-width: 170px; margin-bottom: 6px;" uk-img>
                         <p class="uk-text-center uk-margin-remove">
-                            <span class="uk-text-small" style="color: #D4AF37;"><i class="fas fa-crown"></i> bob</span><br>
+                            <span class="uk-text-small" style="color: #D4AF37;"><i class="fas fa-crown"></i> jarivera</span><br>
+                        </p>
+                        <img id="preview" class="uk-align-center" src="data:image/png;base64, {!! base64_encode($qrc['preview']) !!}" style="max-width: 170px; margin-top: 8px; margin-bottom: 6px;" uk-img>
+                        <p class="uk-text-center uk-margin-remove">
                             <i class="fas fa-hashtag"></i><code style="color: #9F6DA6;">{{$qrc['id']}}</code>
                         </p>
                         <hr>

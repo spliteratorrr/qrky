@@ -15,8 +15,8 @@
                     <span class="uk-margin-small-left" uk-icon="icon: triangle-down"></span></a>
                 <div uk-dropdown="mode: click; pos: bottom-justify;">
                     <ul class="uk-nav uk-dropdown-nav">
-                        <li class="uk-active"><a href="#">Guidance Office</a></li>
-                        <li><a href="#">Org Fair</a></li>
+                        <li class="uk-active"><a href="#"><i class="fas fa-layer-group"></i> Guidance Office ( <i class="fas fa-qrcode"></i> 2 )</a></li>
+                        <li><a href="#"><i class="fas fa-layer-group"></i> Org Fair 2019</a></li>
                     </ul>
                 </div>
             </li>

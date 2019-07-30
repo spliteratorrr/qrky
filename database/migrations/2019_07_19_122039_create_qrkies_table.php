@@ -32,6 +32,10 @@ class CreateQrkiesTable extends Migration
             $table->bigInteger('group_id')->unsigned()->nullable();
             $table->foreign('group_id')->references('id')->on('groups');
 
+            // Scan data
+            $table->integer('total_scans');
+            $table->integer('unique_scans');
+            
             // Timestamps
             $table->timestamps();
             $table->timestamp('deployed_at')->nullable();
