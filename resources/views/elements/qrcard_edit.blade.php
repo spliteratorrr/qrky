@@ -7,13 +7,13 @@
 
         <div class="uk-modal-body">
             <div class="uk-flex" uk-grid>
-                <div class="uk-width-expand@m">
+                <div class="uk-width-expand@m" >
                     <!-- Info panel -->
                     <div class="uk-card uk-card-default qrky-border">
                         <div class="uk-card-body">
                             <h4 class="uk-text-center">QR Code Information</h4>
+                            <form>
                             <ul class="uk-list">
-                                
                                 <!-- Name -->
                                 <li>
                                     <span class="uk-text-meta uk-text-uppercase">
@@ -23,7 +23,7 @@
                                         <input
                                             class="qrky-form qrky-edit-field uk-input uk-form-medium"
                                             type="text"
-                                            placeholder="Name of this QR code..."
+                                            placeholder="Who is this QR code?"
                                             value="{{$qrc['name']}}">
                                     </p>
                                 </li>
@@ -52,7 +52,7 @@
                                             class="qrky-form qrky-edit-field uk-textarea"
                                             id="form-stacked-area"
                                             rows="2"
-                                            placeholder="Actual content of this QR code..."></textarea>
+                                            placeholder="What does this QR code contain?"></textarea>
                                     </p>
                                 </li>
                                 
@@ -62,7 +62,7 @@
                                         <i class="fas fa-quote-right"></i> Description
                                     </span>
                                     <p class="uk-margin-remove-top">
-                                        <textarea class="qrky-form qrky-edit-field uk-textarea" id="form-stacked-area" rows="1" placeholder="Description of this QR code...">{{$qrc['desc']}}</textarea>
+                                        <textarea class="qrky-form qrky-edit-field uk-textarea" id="form-stacked-area" rows="1" placeholder="What is this QR code for?">{{$qrc['desc']}}</textarea>
                                     </p>
                                 </li>
                                 
@@ -72,17 +72,29 @@
                                         <i class="fas fa-map-marked-alt"></i> Location
                                     </span>
                                     <p class="uk-margin-remove-top">
-                                        <input class="qrky-form qrky-edit-field uk-input uk-form-medium" type="text" value="{{$qrc['loc']}}">
+                                        <input class="qrky-form qrky-edit-field uk-input uk-form-medium" placeholder="Where is this QR code?" type="text" value="{{$qrc['loc']}}">
                                     </p>
                                 </li>
+
+                                <!-- Deployment Status -->
+                                <li>
+                                    <span class="uk-text-meta uk-text-uppercase">
+                                        <i class="fas fa-sign"></i> Deployment Date
+                                    </span>
+                                    <p class="uk-margin-remove-top">
+                                        <input class="qrky-form qrky-edit-field uk-input uk-form-medium" name="dep" type="text" readonly>
+                                    </p>
+                                </li>
+
                             </ul>
+                            </form>
                         </div>
                     </div>
                 </div>
 
                 <!-- Preview panel -->
                 <div class="uk-width-1-5@m uk-flex-first">
-                    <div class="uk-card uk-card-default qrky-border" style="min-width: 200px; padding-top: 30px; padding-bottom: 1px;" class="uk-align-center">    
+                    <div class="uk-card uk-card-default qrky-border uk-align-center uk-height-1-1" style="min-width: 200px; padding-top: 30px; padding-bottom: 1px;">    
                         <h4 class="uk-text-center">
                             <span class="uk-visible@m">Preview</span>
                             <span class="uk-hidden@l">{{$qrc['name']}}</span>
@@ -95,16 +107,18 @@
                             <i class="fas fa-hashtag"></i><code style="color: #9F6DA6;">{{$qrc['id']}}</code>
                         </p>
                         <hr>
-                        <p class="uk-text-center uk-text-muted">
-                            <span class="uk-text-center"><i class="fas fa-clock" style="font-size: 24px"></i></span><br>
-                            <span class="uk-text-small"><i class="fas fa-star"></i>  07/06/19, 10:00AM <i class="far fa-question-circle qrky-icon" uk-tooltip="title: Creation time.; pos: right;"></i></span><br>
-                            <span class="uk-text-small" uk-tooltip="title: Deployment time.; pos: right;"><i class="fas fa-sign"></i> 07/06/19, 10:00AM <i class="far fa-question-circle qrky-icon" uk-tooltip="title: Deployment time.; pos: right;"></i></span>
-                        </p>
                         <p class="uk-text-center">
-                            <span class="uk-text-muted uk-text-small"> <i class="fas fa-eye" style="font-size: 24px"></i>
+                            <span class="uk-text-center">Scan Information</span>
+                            <span class="uk-text-small uk-text-muted"> 
                                 <br>Total scans: -
                                 <br>Unique scans: -
                             </span>
+                        </p>
+                        <hr>
+                        <p class="uk-text-center">
+                            <span class="uk-text-center">Date Information</span><br>
+                            <span class="uk-text-small uk-text-muted"><i class="fas fa-star"></i>  Jun 06, 2019; 10:00AM <i class="far fa-question-circle qrky-icon" uk-tooltip="title: Creation date of this QRC.; pos: right;"></i></span><br>
+                            <span class="uk-text-small uk-text-muted" uk-tooltip="title: Deployment time.; pos: right;"><i class="fas fa-sign"></i> Jun 06, 2019; 10:00AM <i class="far fa-question-circle qrky-icon" uk-tooltip="title: Deployment date of this QRC.; pos: right;"></i></span>
                         </p>
                     </div>
                 </div>
@@ -117,3 +131,24 @@
         </div>
     </div>
 </div>
+
+@section('scripts')
+    <script>
+        $(function() {
+            $('input[name="dep"]').daterangepicker({
+                opens: 'center',
+                drops: 'up',
+                autoApply: true,
+                timePicker: true,
+                singleDatePicker: true,
+                showDropdowns: false,
+                buttonClasses: 'uk-button uk-button-default uk-button-small',
+                applyButtonClasses: 'uk-button-secondary',
+                locale: {
+                    format: 'MMM DD, YYYY; hh:mm A'
+                }
+            }, function(start, end, label) {
+            });
+            });
+    </script>
+@endsection

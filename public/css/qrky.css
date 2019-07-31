@@ -41,3 +41,11 @@
 .qrky-sec {
     color: #DC8FAC;
 }
+
+td.active.start-date.available {
+    background-color: #9F6DA6;
+}
+
+td.active.start-date.available:hover {
+    background-color: #75517A;
+}

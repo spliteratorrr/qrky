@@ -11,10 +11,10 @@
         <link rel="icon" href="{{ asset('favicon.ico')}}">
 
         <!-- Styles -->
-        <link href="{{ asset('css/font.css') }}" rel="stylesheet" type="text/css">
-        <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css">
-        <link href="{{ asset('css/qrky.css') }}" rel="stylesheet" type="text/css">
-
+        <link type="text/css" href="{{ asset('css/font.css') }}" rel="stylesheet">
+        <link type="text/css" href="{{ asset('css/app.css') }}" rel="stylesheet">
+        <link type="text/css" href="{{ asset('css/qrky.css') }}" rel="stylesheet">
+        <link type="text/css" href="{{ asset('css/daterangepicker.css') }}" rel="stylesheet">
     </head>
 
     <body>
@@ -31,7 +31,9 @@
     
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
-    <script src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/moment.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/daterangepicker.min.js') }}"></script>
     @yield('scripts')
 </html>

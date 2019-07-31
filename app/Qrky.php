@@ -29,11 +29,14 @@ class Qrky extends Model
      * @var array
      */
     protected $fillable = [
+        'id',
         'name', 
         'content', 
         'content_type',
         'description',
         'location',
+        'owner_id',
+        'group_id'
     ];
 
     /**
@@ -48,5 +51,12 @@ class Qrky extends Model
      */
     public function group() {
         return Group::find($this->group_id)->first();
+    }
+
+    /**
+     * Get the deployment status of this QRC.
+     */
+    public function status() {
+        return is_null($this->deployed_at) ? 'Not Deployed' : 'Deployed';
     }
 }
