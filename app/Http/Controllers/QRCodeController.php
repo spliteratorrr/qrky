@@ -29,33 +29,48 @@ class QRCodeController extends Controller
         $qrcs = Qrky::where('owner_id', $uid)->get();
 
         return view('manage_qrc_ug', [
+            'ug_qr_count' => 1,
+            'g_grp_count' => 1,
+            'g_qr_count' => 2,
             'qrcs' => [
                 [
                     'name' => 'Guidance Feedback Form', 
                     'status' => 'Deployed',
                     'id' => QrkyUtils::get_hash(), 
-                    'type' => 'Static', 
+                    'type' => 'Static',
+                    'content' => 'The content is real.', 
                     'loc' => '11F, RM1106', 
                     'desc' => 'Allows routine interviewees to instantly access the guidance feedback form after their interview.',
-                    'preview' => QrkyUtils::get_static_code(true, 'ewew31')
+                    'preview' => QrkyUtils::get_static_code(true, 'ewew31'),
+                    'c_date' => '-',
+                    'm_date' => 'oof',
+                    'd_date' => 'd'
+                ]
+            ],
+            'grps' => [
+                [
+                    'name' => 'Guidance Office',
+                    'qr_count' => 5
                 ],
                 [
-                    'name' => 'Jobert',
-                    'status' => 'Not Deployed',
-                    'id' => 'fkeose', 
-                    'type' => 'Static', 
-                    'loc' => '11F, RM1106', 
-                    'desc' => 'Oofsie',
-                    'preview' => QrkyUtils::get_static_code(true, 'fkeose')
+                    'name' => 'Guidance Office',
+                    'qr_count' => 5
                 ],
                 [
-                    'name' => 'Mekomeko',
-                    'status' => 'Deployed',
-                    'id' => 'wieuad', 
-                    'type' => 'Static', 
-                    'loc' => '11F, RM1106', 
-                    'desc' => 'Oofsie',
-                    'preview' => QrkyUtils::get_static_code(true, 'wieuad')
+                    'name' => 'Guidance Office',
+                    'qr_count' => 5
+                ],
+                [
+                    'name' => 'Guidance Office',
+                    'qr_count' => 5
+                ],
+                [
+                    'name' => 'Guidance Office',
+                    'qr_count' => 5
+                ],
+                [
+                    'name' => 'Guidance Office',
+                    'qr_count' => 5
                 ]
             ]
         ]);

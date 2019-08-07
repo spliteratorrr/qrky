@@ -8,15 +8,26 @@
         </h2>
         
         <ul class="uk-child-width-expand" uk-tab="media: @m" uk-switcher="animation: uk-animation-slide-left-medium">
-            <li class="uk-active"><a class="qrky-tab" href="#">Ungrouped <span id="ug-count" class="uk-visible@s">( <i class="fas fa-qrcode"></i> 2 )</span></a></li>
+            <!-- Ungroup tab -->
+            <li class="uk-active">
+                <a class="qrky-tab" href="#">Ungrouped 
+                    <span id="ug-count" class="uk-visible@s">( <i class="fas fa-qrcode"></i> {{ $ug_qr_count }} )</span>
+                </a>
+            </li>
             <li>
+                <!-- Group tab -->
                 <a class="qrky-tab" disabled>
-                    Grouped <span id="g-count" class="uk-visible@s">( <i class="fas fa-qrcode"></i> 0, <i class="fas fa-layer-group"></i> 2 )</span>
-                    <span class="uk-margin-small-left" uk-icon="icon: triangle-down"></span></a>
-                <div uk-dropdown="mode: click; pos: bottom-justify;">
+                    Grouped <span id="g-count" class="uk-visible@s">( <i class="fas fa-qrcode"></i> {{ $g_qr_count }}, <i class="fas fa-layer-group"></i> {{ $g_grp_count }} )</span>
+                    <span class="uk-margin-small-left" uk-icon="icon: triangle-down"></span>
+                </a>
+                <!-- Groups dropdown -->
+                <div uk-dropdown="mode: click; pos: bottom;">
                     <ul class="uk-nav uk-dropdown-nav">
-                        <li class="uk-active"><a href="#"><i class="fas fa-layer-group"></i> Guidance Office ( <i class="fas fa-qrcode"></i> 2 )</a></li>
-                        <li><a href="#"><i class="fas fa-layer-group"></i> Org Fair 2019</a></li>
+                        @foreach($grps as $grp)
+                            <li>
+                                <a href="#"><i class="fas fa-layer-group"></i> {{ $grp['name'] }} ( <i class="fas fa-qrcode"></i> {{ $grp['qr_count'] }} )</a>
+                            </li>
+                        @endforeach
                     </ul>
                 </div>
             </li>

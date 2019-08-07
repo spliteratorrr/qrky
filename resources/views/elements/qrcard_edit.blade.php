@@ -52,7 +52,7 @@
                                             class="qrky-form qrky-edit-field uk-textarea"
                                             id="form-stacked-area"
                                             rows="2"
-                                            placeholder="What does this QR code contain?"></textarea>
+                                            placeholder="What does this QR code contain?">{{$qrc['content']}}</textarea>
                                     </p>
                                 </li>
                                 
@@ -104,7 +104,8 @@
                         </p>
                         <img id="preview" class="uk-align-center" src="data:image/png;base64, {!! base64_encode($qrc['preview']) !!}" style="max-width: 170px; margin-top: 8px; margin-bottom: 6px;" uk-img>
                         <p class="uk-text-center uk-margin-remove">
-                            <i class="fas fa-hashtag"></i><code style="color: #9F6DA6;">{{$qrc['id']}}</code>
+                            <i class="fas fa-flag uk-text-success"></i> <span class="uk-text-small uk-text-success">{{$qrc['status']}}</span><br>
+                            <i class="fas fa-hashtag" style="color: #9F6DA6;"></i><code style="color: #9F6DA6;">{{$qrc['id']}}</code>
                         </p>
                         <hr>
                         <p class="uk-text-center">
@@ -117,8 +118,9 @@
                         <hr>
                         <p class="uk-text-center">
                             <span class="uk-text-center">Date Information</span><br>
-                            <span class="uk-text-small uk-text-muted"><i class="fas fa-star"></i>  Jun 06, 2019; 10:00AM <i class="far fa-question-circle qrky-icon" uk-tooltip="title: Creation date of this QRC.; pos: right;"></i></span><br>
-                            <span class="uk-text-small uk-text-muted" uk-tooltip="title: Deployment time.; pos: right;"><i class="fas fa-sign"></i> Jun 06, 2019; 10:00AM <i class="far fa-question-circle qrky-icon" uk-tooltip="title: Deployment date of this QRC.; pos: right;"></i></span>
+                            <span class="uk-text-small uk-text-muted"><i class="fas fa-edit"></i> {{ $qrc['m_date'] }} <i class="far fa-question-circle qrky-icon" uk-tooltip="title: Last modified date of this QRC.; pos: right;"></i></span><br>
+                            <span class="uk-text-small uk-text-muted"><i class="fas fa-star"></i> {{ $qrc['c_date'] }} <i class="far fa-question-circle qrky-icon" uk-tooltip="title: Creation date of this QRC.; pos: right;"></i></span><br>
+                            <span class="uk-text-small uk-text-muted" uk-tooltip="title: Deployment time.; pos: right;"><i class="fas fa-sign"></i> {{ $qrc['d_date'] }} <i class="far fa-question-circle qrky-icon" uk-tooltip="title: Deployment date of this QRC.; pos: right;"></i></span>
                         </p>
                     </div>
                 </div>
