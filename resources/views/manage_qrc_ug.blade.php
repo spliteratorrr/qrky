@@ -35,8 +35,15 @@
 
         <!-- Sort by -->
         <div class="uk-margin-bottom">
-            <button class="uk-button uk-button-default uk-button-small uk-float-left" type="button"><i class="fas fa-plus-square"></i> Create new QRC</span></button>
-            <button class="uk-button uk-button-default uk-button-small uk-float-right" type="button"><i class="fas fa-random"></i> Sort by<span id="sort-mode" class="uk-visible@s">: Alphabetical</span></button>
+            <!-- Create new -->
+            <button class="uk-button uk-button-default uk-button-small uk-float-left" type="button">
+                <i class="fas fa-plus-square"></i> Create new QRC</span>
+            </button>
+            
+            <!-- Sort by -->
+            <button class="uk-button uk-button-default uk-button-small uk-float-right" type="button">
+                <i class="fas fa-random"></i> Sort by<span id="sort-mode" class="uk-visible@s">: Alphabetical</span>
+            </button>
             
             <div uk-dropdown="pos: bottom-justify">
                 <ul class="uk-nav uk-dropdown-nav">

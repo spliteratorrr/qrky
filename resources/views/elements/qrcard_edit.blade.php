@@ -22,6 +22,7 @@
                                     <p class="uk-margin-remove-top">
                                         <input
                                             class="qrky-form qrky-edit-field uk-input uk-form-medium"
+                                            id="form-name"
                                             type="text"
                                             placeholder="Who is this QR code?"
                                             value="{{$qrc['name']}}">
@@ -37,7 +38,7 @@
                                     <p class="uk-margin-remove-top">
                                         <select
                                             class="qrky-form qrky-edit-field uk-select"
-                                            id="form-stacked-select">
+                                            id="form-content-type">
                                                 <option>Plaintext</option>
                                                 <option>URL Redirect</option>
                                         </select>
@@ -50,7 +51,7 @@
                                     <p class="uk-margin-remove-top">
                                         <textarea 
                                             class="qrky-form qrky-edit-field uk-textarea"
-                                            id="form-stacked-area"
+                                            id="form-content"
                                             rows="2"
                                             placeholder="What does this QR code contain?">{{$qrc['content']}}</textarea>
                                     </p>
@@ -62,7 +63,7 @@
                                         <i class="fas fa-quote-right"></i> Description
                                     </span>
                                     <p class="uk-margin-remove-top">
-                                        <textarea class="qrky-form qrky-edit-field uk-textarea" id="form-stacked-area" rows="1" placeholder="What is this QR code for?">{{$qrc['desc']}}</textarea>
+                                        <textarea class="qrky-form qrky-edit-field uk-textarea" id="form-desc" rows="1" placeholder="What is this QR code for?">{{$qrc['desc']}}</textarea>
                                     </p>
                                 </li>
                                 
@@ -72,17 +73,17 @@
                                         <i class="fas fa-map-marked-alt"></i> Location
                                     </span>
                                     <p class="uk-margin-remove-top">
-                                        <input class="qrky-form qrky-edit-field uk-input uk-form-medium" placeholder="Where is this QR code?" type="text" value="{{$qrc['loc']}}">
+                                        <input class="qrky-form qrky-edit-field uk-input uk-form-medium" id="form-loc" placeholder="Where is this QR code?" type="text" value="{{$qrc['loc']}}">
                                     </p>
                                 </li>
 
-                                <!-- Deployment Status -->
+                                <!-- Deployment Date -->
                                 <li>
                                     <span class="uk-text-meta uk-text-uppercase">
                                         <i class="fas fa-sign"></i> Deployment Date
                                     </span>
                                     <p class="uk-margin-remove-top">
-                                        <input class="qrky-form qrky-edit-field uk-input uk-form-medium" name="dep" type="text" readonly>
+                                        <input class="qrky-form qrky-edit-field uk-input uk-form-medium" id="form-d-date" name="dep" type="text" readonly>
                                     </p>
                                 </li>
 
