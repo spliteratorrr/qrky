@@ -11,13 +11,13 @@
             <!-- Ungroup tab -->
             <li class="uk-active">
                 <a class="qrky-tab" href="#">Ungrouped 
-                    <span id="ug-count" class="uk-visible@s">( <i class="fas fa-qrcode"></i> {{ $ug_qr_count }} )</span>
+                    <span id="ug-count" class="uk-visible@s">[ <i class="fas fa-qrcode"></i> {{ $ug_qr_count }} ]</span>
                 </a>
             </li>
             <li>
                 <!-- Group tab -->
                 <a class="qrky-tab" disabled>
-                    Grouped <span id="g-count" class="uk-visible@s">( <i class="fas fa-qrcode"></i> {{ $g_qr_count }}, <i class="fas fa-layer-group"></i> {{ $g_grp_count }} )</span>
+                    Grouped <span id="g-count" class="uk-visible@s">[ <i class="fas fa-qrcode"></i> {{ $g_qr_count }}, <i class="fas fa-layer-group"></i> {{ $g_grp_count }} ]</span>
                     <span class="uk-margin-small-left" uk-icon="icon: triangle-down"></span>
                 </a>
                 <!-- Groups dropdown -->
@@ -25,7 +25,7 @@
                     <ul class="uk-nav uk-dropdown-nav">
                         @foreach($grps as $grp)
                             <li>
-                                <a href="#"><i class="fas fa-layer-group"></i> {{ $grp['name'] }} ( <i class="fas fa-qrcode"></i> {{ $grp['qr_count'] }} )</a>
+                                <a href="#"><i class="fas fa-layer-group"></i> {{ $grp['name'] }} [ <i class="fas fa-qrcode"></i> {{ $grp['qr_count'] }} ]</a>
                             </li>
                         @endforeach
                     </ul>
