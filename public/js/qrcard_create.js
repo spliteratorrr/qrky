@@ -1,0 +1,24 @@
+$(function() {
+    $('input[name="dep"]').daterangepicker({
+        opens: 'center',
+        drops: 'up',
+        startDate: deployDate,
+        endDate: deployDate,
+        autoApply: true,
+        timePicker: true,
+        singleDatePicker: true,
+        showDropdowns: false,
+        buttonClasses: 'uk-button uk-button-default uk-button-small',
+        applyButtonClasses: 'uk-button-secondary',
+        locale: {
+            format: 'MMM DD, YYYY; hh:mm A'
+        }
+    }),
+    $('.cancel-btn').click(function() {
+        var id = $(this).attr('target');
+        var form = $('#form-' + id);
+        var dateInput = form.find('li').last().find(':input');
+        form.trigger("reset");
+        dateInput.data('daterangepicker').setStartDate(moment());
+    })
+});

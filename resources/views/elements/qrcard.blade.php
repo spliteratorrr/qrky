@@ -21,7 +21,7 @@
 
             <div class="uk-card-footer">
                 <a href="#" class="uk-button uk-button-text"><i class="fas fa-eye"></i> Visit</a>
-                <a href="#modal-{{$qrc['id']}}" class="uk-button uk-button-text uk-margin-left" uk-toggle="target: #modal-{{$qrc['id']}}"><i class="fas fa-pencil-alt"></i> Edit QRC</a>
+                <a href="" class="uk-button uk-button-text uk-margin-left" uk-toggle="target: #modal-{{$qrc['id']}}"><i class="fas fa-pencil-alt"></i> Edit QRC</a>
             </div>
             
         </div>        

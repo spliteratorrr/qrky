@@ -228,6 +228,7 @@ return [
         'QrCode' => SimpleSoftwareIO\QrCode\Facades\QrCode::class,
         'Hashids' => Vinkla\Hashids\Facades\Hashids::class,
         'QrkyUtils' => App\Helpers\QrkyUtils::class,
+        'QrkyFactory' => App\Helpers\QrkyFactory::class,
     ],
 
 ];

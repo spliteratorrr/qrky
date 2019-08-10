@@ -36,7 +36,7 @@
         <!-- Sort by -->
         <div class="uk-margin-bottom">
             <!-- Create new -->
-            <button class="uk-button uk-button-default uk-button-small uk-float-left" type="button">
+            <button class="uk-button uk-button-default uk-button-small uk-float-left" type="button" uk-toggle="target: #modal-create">
                 <i class="fas fa-plus-square"></i> Create new QRC</span>
             </button>
             
@@ -65,6 +65,12 @@
         @foreach($qrcs as $qrc)
             @include('elements.qrcard_edit')
         @endforeach
+
+        @include('elements.qrcard_create')
     </div>
 </section>
+@endsection
+
+@section('scripts')
+    <script type="text/javascript" src="{{ asset('js/qrcard_edit.js') }}"></script>
 @endsection

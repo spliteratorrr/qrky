@@ -21,6 +21,7 @@ class CreateQrkiesTable extends Migration
             $table->string('name');
             $table->string('content');
             $table->integer('content_type');
+            $table->integer('status');
             $table->string('description')->nullable();
             $table->string('location')->nullable();
             

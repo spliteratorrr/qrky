@@ -34,6 +34,7 @@ class Qrky extends Model
         'content', 
         'content_type',
         'description',
+        'status',
         'location',
         'owner_id',
         'group_id'
@@ -57,6 +58,11 @@ class Qrky extends Model
      * Get the deployment status of this QRC.
      */
     public function status() {
-        return is_null($this->deployed_at) ? 'Not Deployed' : 'Deployed';
+        switch($this->status) {
+            case 0:
+                return 'Not Deployed';
+            case 1:
+                return 'Deployed';
+        }
     }
 }
