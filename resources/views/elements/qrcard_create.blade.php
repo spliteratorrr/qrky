@@ -17,7 +17,7 @@
     $edit_mode = false;
 @endphp
 
-<div id="modal-create" class="uk-modal-container" uk-modal="bg-close: false;">
+<div id="modal-create" class="uk-width-auto" uk-modal="bg-close: false;">
     <div class="uk-modal-dialog qrky-border">
         <form id="form-{{ $form_name }}">
         <div class="uk-modal-header">
