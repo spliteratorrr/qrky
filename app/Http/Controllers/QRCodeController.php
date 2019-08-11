@@ -6,17 +6,12 @@ use Illuminate\Http\Request;
 use App\Qrky;
 use App\Group;
 use QrkyUtils;
+use QrkyFactory;
 
 class QRCodeController extends Controller
 {
     public function show() {
         return QrkyUtils::get_qrky_code();
-    }
-
-    public function create() {
-        return view('create', [
-            'qrc' => QrkyUtils::get_static_code(true, 'Preview')
-        ]);
     }
 
     /**
@@ -35,24 +30,9 @@ class QRCodeController extends Controller
             'qrcs' => [
                 [
                     'name' => 'Guidance Feedback Form', 
-                    'status' => 'Deployed',
+                    'status' => 'Not Deployed',
+                    'status_class' => 'uk-text-danger',
                     'owner' => 'walbert',
-                    'id' => QrkyUtils::get_hash(), 
-                    'type' => 'Static',
-                    'content' => 'The content is real.', 
-                    'loc' => '11F, RM1106', 
-                    'desc' => 'Allows routine interviewees to instantly access the guidance feedback form after their interview.',
-                    'preview' => QrkyUtils::get_static_code(true, 'ewew31'),
-                    'u_scans' => '13232323',
-                    't_scans' => '2323232',
-                    'c_date' => '-',
-                    'm_date' => 'oof',
-                    'd_date' => 'd'
-                ],
-                [
-                    'name' => 'Guidance Feedback Form', 
-                    'status' => 'Deployed',
-                    'owner' => 'jobert',
                     'id' => QrkyUtils::get_hash(), 
                     'type' => 'Static',
                     'content' => 'The content is real.', 
@@ -150,5 +130,30 @@ class QRCodeController extends Controller
         
         
         return base64_encode($qrc);
+    }
+
+    public function qrc_preview(Request $request) {
+        $id = $request->input('id');
+        $qrc = QrkyFactory::preview($id);
+        return base64_encode($qrc);
+    }
+
+    public function qrc_create(Request $request) {
+        $name = $request->input('name');
+        $content = $request->input('content');
+        $content_type = $request->input('contentType');
+        $desc = $request->input('desc');
+        $loc = $request->input('loc');
+        $deploy_date = $request->input('deployDate');
+
+        // Creates the QR code
+        $id = QrkyFactory::create(
+            $name,
+            $content,
+            $content_type,
+            $desc,
+            $loc,
+            $deploy_date
+        );
     }
 }

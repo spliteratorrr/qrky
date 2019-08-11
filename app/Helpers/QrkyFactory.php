@@ -12,18 +12,22 @@ class QrkyFactory {
     private static $PREVIEW_SIZE = 300;
     private static $FULL_SIZE = 700;
 
-    public static function create($name, $content, $content_type, $desc, $loc) {
+    public static function create($name, $content, $content_type, $desc, $loc, $d_date) {
         $user = Auth::user();
+        $id = self::random_hash($user->username);
+        $owner_id = $user->id;
 
         $qrc = Qrky::create([
-            'id' => random_hash(),
+            'id' => $id,
             'name' => $name,
             'content' => $content,
             'content_type' => $content_type,
             'status' => 0,
             'description' => $desc,
             'location' => $loc,
-            'owner_id' => $user->id
+            'owner_id' => $owner_id,
+            'deployed_at' =>  $d_date,
+            'total_scans'
         ]);
     }
 
@@ -39,8 +43,8 @@ class QrkyFactory {
     /**
      * Generate a random unique hash ID based on the time
      */
-    public static function random_hash() {
-        $hashids = new Hashids('', 5);
+    public static function random_hash($username) {
+        $hashids = new Hashids($username, 5);
         return $hashids->encode(time());
     }
 }

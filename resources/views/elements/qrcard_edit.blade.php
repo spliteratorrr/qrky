@@ -5,6 +5,7 @@
     $qr_content = $qrc['content'];
     $qr_desc = $qrc['desc'];
     $qr_status = $qrc['status'];
+    $qr_status_class = $qrc['status_class'];
     $qr_loc = $qrc['loc'];
     $qr_preview = $qrc['preview'];
 
@@ -12,7 +13,11 @@
     $qr_t_scans = $qrc['t_scans'];
     $qr_m_date = $qrc['m_date'];
     $qr_c_date = $qrc['c_date'];
-    $qr_d_date = $qrc['d_date'];        
+    $qr_d_date = $qrc['d_date'];
+    $form_name = $qr_id;
+    $dep_name = 'edit-dep';
+    
+    $edit_mode = true;
 @endphp
 
 <div id="modal-{{ $qr_id }}" class="uk-modal-container" uk-modal="bg-close: false;">
@@ -31,8 +36,9 @@
         </div>
 
         <div class="uk-modal-footer uk-text-right">
-            <button class="uk-button uk-button-default uk-modal-close cancel-btn" type="button" target="{{ $qr_id }}">Cancel</button>
-            <button class="uk-button uk-button-secondary save-btn" type="button" target="{{ $qr_id }}">Save</button>
+            <button class="uk-button uk-button-default uk-modal-close cancel-btn" type="button" target="{{ $qr_id }}"><i class="fas fa-times"></i> Cancel</button>
+            <button class="uk-button uk-button-default save-btn" type="button" target="{{ $qr_id }}"><i class="far fa-file-image"></i> Get printable</button>
+            <button class="uk-button uk-button-secondary save-btn" type="button" target="{{ $qr_id }}"><i class="far fa-save"></i> Save</button>
         </div>
     </div>
 </div>

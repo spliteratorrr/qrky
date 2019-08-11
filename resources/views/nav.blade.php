@@ -24,14 +24,11 @@
                     @else
                     <!-- Logged In -->
                         <div class="uk-button-group">
-                            <a href="{{ route('create') }}">
-                                <button class="uk-button uk-button-default qrky-nav-btn uk-button-small">Create QRCs</button>
-                            </a>
                             <a href="{{ route('manage-qrcs-ug') }}">
-                                <button class="uk-button uk-button-default qrky-nav-btn uk-button-small">Manage QRCs</button>
+                                <button class="uk-button uk-button-default qrky-nav-btn uk-button-small">My QR Codes</button>
                             </a>
                             <a href="{{ route('manage-grps') }}">
-                                <button class="uk-button uk-button-default qrky-nav-btn uk-button-small">Manage Groups</button>
+                                <button class="uk-button uk-button-default qrky-nav-btn uk-button-small">My Groups</button>
                             </a>
                             <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                 <button class="uk-button uk-button-default qrky-nav-btn uk-button-small">Logout</button>

@@ -37,7 +37,8 @@ class Qrky extends Model
         'status',
         'location',
         'owner_id',
-        'group_id'
+        'group_id',
+        'deployed_at'
     ];
 
     /**

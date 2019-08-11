@@ -34,8 +34,8 @@ class CreateQrkiesTable extends Migration
             $table->foreign('group_id')->references('id')->on('groups');
 
             // Scan data
-            $table->integer('total_scans');
-            $table->integer('unique_scans');
+            $table->integer('total_scans')->default(0);
+            $table->integer('unique_scans')->default(0);
             
             // Timestamps
             $table->timestamps();

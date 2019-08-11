@@ -1,10 +1,11 @@
 $(function() {
-    $('input[name="dep"]').daterangepicker({
+    $('input[name="edit-dep"]').daterangepicker({
         opens: 'center',
         drops: 'up',
         startDate: moment(),
         endDate: moment(),
         autoApply: true,
+        autoUpdateInput: false,
         timePicker: true,
         singleDatePicker: true,
         showDropdowns: false,
