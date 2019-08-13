@@ -20,13 +20,51 @@ class QRCodeController extends Controller
     public function manage_qrcs_ug(Request $req) {
         $user = auth()->user();
         $uid = $user->id;
+
         // Retrieve QRCs owned by the user
         $qrcs = Qrky::where('owner_id', $uid)->get();
 
+        $qrcs_data = array();
+        foreach($qrcs as $qrc) {
+            $qd = array();
+
+            // Retrieve ID and preview
+            $id = $qrc['id'];
+            $qd['id'] = $id;
+            $qd['preview'] = QrkyFactory::preview($id);
+
+            // Retrieve owner
+            $qd['owner'] = User::where('owner_id', $uid)['username'];
+            
+            // Retrieve other attributes
+            $qd['name'] = $qrc['name'];
+            $qd['content'] = $qrc['content'];
+            $qd['type'] = $qrc['content_type'];
+            $qd['loc'] = $qrc['location'];
+            $qd['desc'] = $qrc['description'];
+            $qd['u_scans'] = $qrc['unique_scans'];
+            $qd['t_scans'] = $qrc['total_scans'];
+            $qd['c_date'] = $qrc['created_at'];
+            $qd['u_date'] = $qrc['updated_at'];
+            $qd['d_date'] = $qrc['deployed_at'];
+
+            // Calculate status
+            $status = $qrc_status;
+            $qd['status'] = $status;
+            $qd['status_class'] = $status == 0 ? 'uk-text-danger' : 'uk-text-success';
+
+            array_push($qd, $qrcs_data);
+        }
+        
+        // Calculate count
+        $ug_qr_count = sizeof($qrcs_data);
+        $g_grp_count = 0;
+        $g_qr_count = 0;
+
         return view('manage_qrc_ug', [
-            'ug_qr_count' => 1,
-            'g_grp_count' => 1,
-            'g_qr_count' => 2,
+            'ug_qr_count' => $ug_qr_count,
+            'g_grp_count' => $g_grp_count,
+            'g_qr_count' => $g_qr_count,
             'qrcs' => [
                 [
                     'name' => 'Guidance Feedback Form', 

@@ -26,8 +26,7 @@ class QrkyFactory {
             'description' => $desc,
             'location' => $loc,
             'owner_id' => $owner_id,
-            'deployed_at' =>  $d_date,
-            'total_scans'
+            'deployed_at' =>  $d_date
         ]);
     }
 
