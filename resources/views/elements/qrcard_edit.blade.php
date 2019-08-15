@@ -22,23 +22,24 @@
 
 <div id="modal-{{ $qr_id }}" class="uk-modal-container" uk-modal="bg-close: false;">
     <div class="uk-modal-dialog qrky-border">
-        
-        <div class="uk-modal-header">
-            <h2 class="uk-modal-title"><i class="fas fa-qrcode"></i> Edit QR Code...</h2>
-        </div>
+        <form id="form-{{ $form_name }}">
+            <div class="uk-modal-header">
+                <h2 class="uk-modal-title"><i class="fas fa-qrcode"></i> Edit QR Code...</h2>
+            </div>
 
-        <div class="uk-modal-body">
-            <div class="uk-flex" uk-grid>
-                <div class="uk-width-expand@m">
-                    @include('elements.qrcard_modal_panel')
-                </div>
-            </div>  
-        </div>
+            <div class="uk-modal-body">
+                <div class="uk-flex" uk-grid>
+                    <div class="uk-width-expand@m">
+                        @include('elements.qrcard_modal_panel')
+                    </div>
+                </div>  
+            </div>
 
-        <div class="uk-modal-footer uk-text-right">
-            <button class="uk-button uk-button-default uk-modal-close cancel-btn" type="button" target="{{ $qr_id }}"><i class="fas fa-times"></i> Cancel</button>
-            <button class="uk-button uk-button-default save-btn" type="button" target="{{ $qr_id }}"><i class="far fa-file-image"></i> Get printable</button>
-            <button class="uk-button uk-button-secondary save-btn" type="button" target="{{ $qr_id }}"><i class="far fa-save"></i> Save</button>
-        </div>
+            <div class="uk-modal-footer uk-text-right">
+                <button class="uk-button uk-button-default uk-modal-close cancel-btn" type="button" target="{{ $qr_id }}"><i class="fas fa-times"></i> Cancel</button>
+                <button class="uk-button uk-button-default save-btn" type="button" target="{{ $qr_id }}"><i class="far fa-file-image"></i> Get printable</button>
+                <button class="uk-button uk-button-secondary save-btn" type="button" target="{{ $qr_id }}"><i class="far fa-save"></i> Save</button>
+            </div>
+        </form>
     </div>
 </div>

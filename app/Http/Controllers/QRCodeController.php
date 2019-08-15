@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
 use App\Qrky;
 use App\Group;
 use QrkyUtils;
@@ -26,36 +27,9 @@ class QRCodeController extends Controller
 
         $qrcs_data = array();
         foreach($qrcs as $qrc) {
-            $qd = array();
-
-            // Retrieve ID and preview
-            $id = $qrc['id'];
-            $qd['id'] = $id;
-            $qd['preview'] = QrkyFactory::preview($id);
-
-            // Retrieve owner
-            $qd['owner'] = User::where('owner_id', $uid)['username'];
-            
-            // Retrieve other attributes
-            $qd['name'] = $qrc['name'];
-            $qd['content'] = $qrc['content'];
-            $qd['type'] = $qrc['content_type'];
-            $qd['loc'] = $qrc['location'];
-            $qd['desc'] = $qrc['description'];
-            $qd['u_scans'] = $qrc['unique_scans'];
-            $qd['t_scans'] = $qrc['total_scans'];
-            $qd['c_date'] = $qrc['created_at'];
-            $qd['u_date'] = $qrc['updated_at'];
-            $qd['d_date'] = $qrc['deployed_at'];
-
-            // Calculate status
-            $status = $qrc_status;
-            $qd['status'] = $status;
-            $qd['status_class'] = $status == 0 ? 'uk-text-danger' : 'uk-text-success';
-
-            array_push($qd, $qrcs_data);
+            array_push($qrcs_data, QrkyFactory::retrieve($uid, $qrc));
         }
-        
+
         // Calculate count
         $ug_qr_count = sizeof($qrcs_data);
         $g_grp_count = 0;
@@ -65,50 +39,12 @@ class QRCodeController extends Controller
             'ug_qr_count' => $ug_qr_count,
             'g_grp_count' => $g_grp_count,
             'g_qr_count' => $g_qr_count,
-            'qrcs' => [
-                [
-                    'name' => 'Guidance Feedback Form', 
-                    'status' => 'Not Deployed',
-                    'status_class' => 'uk-text-danger',
-                    'owner' => 'walbert',
-                    'id' => QrkyUtils::get_hash(), 
-                    'type' => 'Static',
-                    'content' => 'The content is real.', 
-                    'loc' => '11F, RM1106', 
-                    'desc' => 'Allows routine interviewees to instantly access the guidance feedback form after their interview.',
-                    'preview' => QrkyUtils::get_static_code(true, 'ewew31'),
-                    'u_scans' => '13232323',
-                    't_scans' => '2323232',
-                    'c_date' => '-',
-                    'm_date' => 'oof',
-                    'd_date' => 'd'
-                ]
-            ],
+            'qrcs' => $qrcs_data,
             'grps' => [
                 [
                     'name' => 'Guidance Office',
                     'qr_count' => 5
                 ],
-                [
-                    'name' => 'Guidance Office',
-                    'qr_count' => 5
-                ],
-                [
-                    'name' => 'Guidance Office',
-                    'qr_count' => 5
-                ],
-                [
-                    'name' => 'Guidance Office',
-                    'qr_count' => 5
-                ],
-                [
-                    'name' => 'Guidance Office',
-                    'qr_count' => 5
-                ],
-                [
-                    'name' => 'Guidance Office',
-                    'qr_count' => 5
-                ]
             ]
         ]);
     }
@@ -138,36 +74,6 @@ class QRCodeController extends Controller
                 ]
             ]
         ]);
-    }
-
-    /**
-     * Generates a QR code preview.
-     */
-    public function preview(Request $request) {
-        $type = $request->input('cType');
-        $content = $request->input('c');
-        $qrc = NULL;
-
-        switch($type) {
-
-            // Static
-            case 0:
-                $qrc = QrkyUtils::get_static_code(true, $content);
-                break;
-
-            // Dynamic
-            case 1:
-                $qrc = QrkyUtils::get_dynamic_code(true, $content);
-                break;
-
-            // Portal
-            case 2:
-                $qrc = QrkyUtils::get_static_code(true, $content);
-                break;
-        }
-        
-        
-        return base64_encode($qrc);
     }
 
     public function qrc_preview(Request $request) {

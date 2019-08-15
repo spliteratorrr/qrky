@@ -36,7 +36,9 @@ $(function() {
         var loc = form.find('#form-loc').val();
 
         var deployDate = form.find('#form-d-date').val();
-        deployDate = moment(deployDate, 'MMM DD, YYYY; hh:mm A').format('YYYY-MM-DD HH:mm:ss');
+        
+        if (deployDate)
+            deployDate = moment(deployDate, 'MMM DD, YYYY; hh:mm A').format('YYYY-MM-DD HH:mm:ss');
 
         $.ajaxSetup({
             headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') }

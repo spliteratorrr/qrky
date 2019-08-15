@@ -73,7 +73,14 @@
                         <i class="fas fa-sign"></i> Deployment Date
                     </span>
                     <p class="uk-margin-remove-top">
-                        <input class="qrky-form qrky-edit-field uk-input uk-form-medium" id="form-d-date" name="{{ $dep_name }}" type="text" placeholder="When was this QR code deployed?" readonly>
+                        <input
+                            class="qrky-form qrky-edit-field uk-input uk-form-medium"
+                            id="form-d-date"
+                            name="{{ $dep_name }}"
+                            type="text"
+                            placeholder="When was this QR code deployed?"
+                            @if($qr_d_date) value="{{ $qr_d_date }}" @endif
+                            readonly>
                     </p>
                 </li>
 

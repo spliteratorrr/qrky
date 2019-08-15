@@ -55,11 +55,19 @@
         <br>
 
         <div class="uk-margin">
-            <div class="uk-child-width-1-2@m" uk-grid>
-                @foreach($qrcs as $qrc)
-                    @include('elements.qrcard')
-                @endforeach
-            </div>
+            @if($ug_qr_count > 0)
+                <div class="uk-child-width-1-2@m" uk-grid>
+                    @foreach($qrcs as $qrc)
+                        @include('elements.qrcard')
+                    @endforeach
+                </div>
+            @else
+                <div class="uk-margin uk-flex uk-flex-middle uk-flex-center">
+                    <span class="uk-text-center uk-text-muted">
+                        <i class="fas fa-exclamation uk-margin-bottom" style="font-size: 52px;"></i> <br>No QR codes found
+                    </span>
+                </div>
+            @endif
         </div>
 
         @foreach($qrcs as $qrc)

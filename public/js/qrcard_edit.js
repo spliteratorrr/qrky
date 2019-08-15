@@ -2,9 +2,6 @@ $(function() {
     $('input[name="edit-dep"]').daterangepicker({
         opens: 'center',
         drops: 'up',
-        startDate: moment(),
-        endDate: moment(),
-        autoApply: true,
         autoUpdateInput: false,
         timePicker: true,
         singleDatePicker: true,
@@ -14,12 +11,19 @@ $(function() {
         locale: {
             format: 'MMM DD, YYYY; hh:mm A'
         }
-    }),
+    });
+    
+    $('input[name="edit-dep"]').on('apply.daterangepicker', function(ev, picker) {
+        $(this).val(picker.startDate.format('MMM DD, YYYY; hh:mm A'));
+    });
+  
+    $('input[name="edit-dep"]').on('cancel.daterangepicker', function(ev, picker) {
+        $(this).val('');
+    });
+
     $('.cancel-btn').click(function() {
         var id = $(this).attr('target');
         var form = $('#form-' + id);
-        var dateInput = form.find('li').last().find(':input');
         form.trigger("reset");
-        dateInput.data('daterangepicker').setStartDate(moment());
-    })
+    });
 });

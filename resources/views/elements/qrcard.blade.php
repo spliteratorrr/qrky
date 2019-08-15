@@ -11,19 +11,20 @@
                     </div>
                 </div>
                 <p class="uk-text-meta uk-margin-remove-top">
-                    <i class="fas fa-dna"></i> {{$qrc['type']}} |
-                    <i class="fas fa-sign"></i> {{$qrc['status']}} |
-                    <i class="fas fa-map-marked-alt"></i> {{$qrc['loc']}}
+                    [ <i class="fas fa-sign"></i> {{$qrc['status']}},
+                    <i class="fas fa-dna"></i> {{$qrc['type']}},
+                    <i class="fas fa-map-marked-alt"></i> {{$qrc['loc']}} ]
                 </p>
                 
                 <p>{{$qrc['desc']}}</p>
             </div>
 
             <div class="uk-card-footer">
-                <a href="#" class="uk-button uk-button-text"><i class="fas fa-eye"></i> Visit</a>
-                <a href="" class="uk-button uk-button-text uk-margin-left" uk-toggle="target: #modal-{{$qrc['id']}}"><i class="fas fa-pencil-alt"></i> Edit QRC</a>
+                
+                <a href="" class="uk-button uk-button-text"><i class="fas fa-eye"></i> Visit</a>
+                <a href="" class="uk-button uk-button-text uk-float-right uk-margin-small-left" uk-toggle="target: #modal-{{$qrc['id']}}"><i class="fas fa-trash-alt"></i> Delete</a>
+                <a href="" class="uk-button uk-button-text uk-float-right uk-margin-left" uk-toggle="target: #modal-{{$qrc['id']}}"><i class="fas fa-pencil-alt"></i> Edit</a>
             </div>
-            
         </div>        
     </div>
 
