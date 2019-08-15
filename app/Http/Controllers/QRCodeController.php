@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use App\User;
 use App\Qrky;
 use App\Group;
@@ -80,6 +81,19 @@ class QRCodeController extends Controller
         $id = $request->input('id');
         $qrc = QrkyFactory::preview($id);
         return base64_encode($qrc);
+    }
+
+    public function qrc_printable(Request $request) {
+        $id = $request->input('id');
+        $content = QrkyFactory::printable($id);
+        $filename = 'qrky_' . $id . '.png';
+
+        return response($content)->withHeaders(
+            [
+                'Content-Type' => 'image/png',
+                'Content-Disposition' => "attachment; filename=$filename",
+            ]
+        );
     }
 
     public function qrc_create(Request $request) {

@@ -11,7 +11,8 @@ use Auth;
 class QrkyFactory {
     
     private static $PREVIEW_SIZE = 300;
-    private static $FULL_SIZE = 700;
+    private static $PRINT_MARGIN = 5;
+    private static $PRINT_SIZE = 700;
 
     private static $types = [
         'Plaintext',
@@ -56,6 +57,15 @@ class QrkyFactory {
         $url = env("APP_URL", "https://qrky.apc.edu.ph");
         $content = $url . '/' . $id;
         return QrCode::format('png')->size(self::$PREVIEW_SIZE)->margin(0)->generate($content);
+    }
+
+    /**
+     * Generates a printable image of the QR code; provided the hash ID.
+     */
+    public static function printable($id) {
+        $url = env("APP_URL", "https://qrky.apc.edu.ph");
+        $content = $url . '/' . $id;
+        return QrCode::format('png')->size(self::$PRINT_SIZE)->margin(self::$PRINT_MARGIN)->generate($content);
     }
     
     /**

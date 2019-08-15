@@ -24,9 +24,11 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/groups', 'QRCodeController@manage_grps')->name('manage-grps');
     Route::post('/preview', 'QRCodeController@preview');
     Route::post('/create', 'QRCodeController@qrc_create')->name('create-qr');
+    Route::get('/print', 'QRCodeController@qrc_printable');
 });
 
 Auth::routes();
+
 
 Route::get('/home', 'HomeController@index')->name('home');
 

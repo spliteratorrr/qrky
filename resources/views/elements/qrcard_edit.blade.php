@@ -37,7 +37,7 @@
 
             <div class="uk-modal-footer uk-text-right">
                 <button class="uk-button uk-button-default uk-modal-close cancel-btn" type="button" target="{{ $qr_id }}"><i class="fas fa-times"></i> Cancel</button>
-                <button class="uk-button uk-button-default save-btn" type="button" target="{{ $qr_id }}"><i class="far fa-file-image"></i> Get printable</button>
+                <button class="uk-button uk-button-default print-btn" type="button" target="{{ $qr_id }}"><i class="far fa-file-image"></i> Get printable</button>
                 <button class="uk-button uk-button-secondary save-btn" type="button" target="{{ $qr_id }}"><i class="far fa-save"></i> Save</button>
             </div>
         </form>

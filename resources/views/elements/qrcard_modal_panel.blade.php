@@ -14,6 +14,7 @@
                             class="qrky-form qrky-edit-field uk-input uk-form-medium"
                             id="form-name"
                             type="text"
+                            autocomplete="off"
                             placeholder="Who is this QR code?"
                             value="{{ $qr_name }}">
                     </p>
@@ -63,7 +64,7 @@
                         <i class="fas fa-map-marked-alt"></i> Location
                     </span>
                     <p class="uk-margin-remove-top">
-                        <input class="qrky-form qrky-edit-field uk-input uk-form-medium" id="form-loc" placeholder="Where is this QR code?" type="text" value="{{ $qr_loc }}">
+                        <input class="qrky-form qrky-edit-field uk-input uk-form-medium" id="form-loc" placeholder="Where is this QR code?" type="text" autocomplete="off" value="{{ $qr_loc }}">
                     </p>
                 </li>
 

@@ -26,4 +26,12 @@ $(function() {
         var form = $('#form-' + id);
         form.trigger("reset");
     });
+
+    $('.print-btn').click(function() {
+        var id = $(this).attr('target');
+
+        window.location = '/print?' + $.param({
+            id: id
+        });
+    });
 });
