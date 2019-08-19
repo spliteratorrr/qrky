@@ -104,8 +104,29 @@ class QRCodeController extends Controller
         $loc = $request->input('loc');
         $deploy_date = $request->input('deployDate');
 
-        // Creates the QR code
+        // Creates the QR code.
         $id = QrkyFactory::create(
+            $name,
+            $content,
+            $content_type,
+            $desc,
+            $loc,
+            $deploy_date
+        );
+    }
+
+    public function qrc_update(Request $request) {
+        $id = $request->input('id');
+        $name = $request->input('name');
+        $content = $request->input('content');
+        $content_type = $request->input('contentType');
+        $desc = $request->input('desc');
+        $loc = $request->input('loc');
+        $deploy_date = $request->input('deployDate');
+
+        // Updates the QR code.
+        $id = QrkyFactory::update(
+            $id,
             $name,
             $content,
             $content_type,

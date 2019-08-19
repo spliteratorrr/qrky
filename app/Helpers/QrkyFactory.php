@@ -50,6 +50,31 @@ class QrkyFactory {
         ]);
     }
 
+    public static function update($id, $name, $content, $content_type, $desc, $loc, $d_date) {
+        $user = Auth::user();
+        $qrcs = self::get_user_qrcs($user);
+
+        // Iterate through each owned QRC by the user.
+        foreach($qrcs as $qrc) {
+            if ($qrc->id == $id) {
+                if (empty($d_date))
+                    $d_date = NULL;
+
+                $qrc->name = $name;
+                $qrc->content = $content;
+                $qrc->content_type = $content_type;
+                $qrc->description = $desc;
+                $qrc->location = $loc;
+                $qrc->deployed_at = $d_date;
+
+                // Update success.
+                $qrc->save();
+                return;
+            }
+        }
+        // No ownership match. The hash ID was possibly tampered.
+    }
+
     /**
      * Generates a preview image of the QR code; provided the hash ID.
      */
@@ -84,6 +109,10 @@ class QrkyFactory {
         return '';
     }
 
+    public static function types() {
+        return self::$types;
+    }
+    
     public static function get_type($type) {
         return self::$types[$type];
     }
@@ -96,6 +125,11 @@ class QrkyFactory {
         return self::$status_styles[$status];
     }
 
+    public static function get_user_qrcs($user) {
+        $uid = $user->id;
+        $qrcs = Qrky::where('owner_id', $uid)->get();
+        return $qrcs;
+    }
     /**
      * Retrieves data from a Qrky model.
      */
@@ -113,6 +147,7 @@ class QrkyFactory {
         // Retrieve other attributes
         $qd['name'] = $qrc['name'];
         $qd['content'] = $qrc['content'];
+        $qd['c_type'] = $qrc['content_type'];
         $qd['loc'] = $qrc['location'];
         $qd['desc'] = $qrc['description'];
         

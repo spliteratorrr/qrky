@@ -1,6 +1,8 @@
 @php
     $qr_name = NULL;
     $qr_content = NULL;
+    $qr_c_type = 0;
+    
     $qr_desc = NULL;
     $qr_status = 'Not Deployed';
     $qr_status_class = 'uk-text-danger';
@@ -21,7 +23,7 @@
     <div class="uk-modal-dialog qrky-border">
         <form id="form-{{ $form_name }}">
             <div class="uk-modal-header">
-                <h2 class="uk-modal-title"><i class="fas fa-qrcode"></i> Create new QR Code...</h2>
+                <h2 class="uk-modal-title"><i class="far fa-star uk-float-right qrky-icon"></i>Create New QR Code</h2>
             </div>
 
             <div class="uk-modal-body">

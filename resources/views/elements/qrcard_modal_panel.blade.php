@@ -30,8 +30,9 @@
                         <select
                             class="qrky-form qrky-edit-field uk-select"
                             id="form-content-type">
-                                <option>Plaintext</option>
-                                <option>URL Redirect</option>
+                                @for($i = 0; $i < sizeof(QrkyFactory::types()); $i++)
+                                    <option {{ $qr_c_type == $i ? 'selected' : '' }}>{{ QrkyFactory::types()[$i] }}</option>
+                                @endfor
                         </select>
                     </p>
                 </li>
@@ -98,8 +99,7 @@
     <div class="uk-width-1-5@m uk-flex-first">
     <div class="uk-card uk-card-default qrky-border uk-align-center uk-height-1-1" style="min-width: 200px; padding-top: 30px; padding-bottom: 1px;">    
         <h4 class="uk-text-center">
-            <span class="uk-visible@m">Preview</span>
-            <span class="uk-hidden@l">{{ $qr_name }}</span>
+            <span>Preview</span>
         </h4>
         <p class="uk-text-center uk-margin-remove">
             <span class="uk-text-small" style="color: #D4AF37;"><i class="fas fa-crown"></i> {{ $qr_owner }}</span><br>

@@ -3,6 +3,8 @@
     $qr_owner = $qrc['owner'];
     $qr_name = $qrc['name'];
     $qr_content = $qrc['content'];
+    $qr_c_type = $qrc['c_type'];
+
     $qr_desc = $qrc['desc'];
     $qr_status = $qrc['status'];
     $qr_status_class = $qrc['status_class'];
@@ -24,7 +26,9 @@
     <div class="uk-modal-dialog qrky-border">
         <form id="form-{{ $form_name }}">
             <div class="uk-modal-header">
-                <h2 class="uk-modal-title"><i class="fas fa-qrcode"></i> Edit QR Code...</h2>
+                <h2 class="uk-modal-title uk-text-center uk-text-truncate">
+                    <i class="fas fa-pencil-alt qrky-icon"></i>
+                    <span class="qrky-icon">...</span> {{ $qr_name }} </h2>
             </div>
 
             <div class="uk-modal-body">
@@ -36,9 +40,18 @@
             </div>
 
             <div class="uk-modal-footer uk-text-right">
-                <button class="uk-button uk-button-default uk-modal-close cancel-btn" type="button" target="{{ $qr_id }}"><i class="fas fa-times"></i> Cancel</button>
-                <button class="uk-button uk-button-default print-btn" type="button" target="{{ $qr_id }}"><i class="far fa-file-image"></i> Get printable</button>
-                <button class="uk-button uk-button-secondary save-btn" type="button" target="{{ $qr_id }}"><i class="far fa-save"></i> Save</button>
+                <button class="uk-button uk-button-default uk-modal-close cancel-btn" type="button" target="{{ $qr_id }}">
+                    <i class="fas fa-times"></i> 
+                    <span class="uk-visible@s">Cancel</span>
+                </button>
+                <button class="uk-button uk-button-primary print-btn" type="button" target="{{ $qr_id }}">
+                    <i class="far fa-file-image"></i> 
+                    <span class="uk-visible@s">Get printable</span>
+                </button>
+                <button class="uk-button uk-button-secondary save-btn" type="button" target="{{ $qr_id }}">
+                    <i class="far fa-save"></i> 
+                    <span class="uk-visible@s">Save</span>
+                </button>
             </div>
         </form>
     </div>
