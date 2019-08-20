@@ -14,14 +14,33 @@ use QrkyFactory;
 
 class QRCodeController extends Controller
 {
-    public function show(Request $request) {
+    public function show(Request $request, $id) {
         // Handle content type
         $data = array();
+
+        $qrc = Qrky::where('id', $id)->first();
+
+        if (is_null($qrc))
+            return view('content.notfound');
+        
+        $type = $qrc->content_type;
+        $name = $qrc->name;
+        $desc = $qrc->description;
+        $content = $qrc->content;
+
+        // Increment scans
+        $qrc->total_scans += 1;
+        $qrc->save();
+
         switch($type) {
             case 0:
-                return view('content.plaintext', ['d' => $data]);
+                return 'oof';
             case 1:
-                return Redirect::to($url);
+                return view('content.redirect', [
+                    'name' => $name,
+                    'desc' => $desc,
+                    'content' => $content
+                ]);
         }
     }
 

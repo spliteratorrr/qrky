@@ -12,7 +12,7 @@
         </div>
 
         <div class="uk-modal-body">
-            <p>Are you sure you want to delete: <span class="uk-text-danger">{{ $qr_name }}</span> ?</p>
+            <p>Are you sure you want to delete <span class="uk-text-danger">{{ $qr_name }}</span> ?</p>
         </div>
 
         <div class="uk-modal-footer">

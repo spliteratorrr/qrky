@@ -20,9 +20,9 @@
             </div>
 
             <div class="uk-card-footer">
-                
-                <a href="" class="uk-button uk-button-text"><i class="fas fa-eye"></i> Visit</a>
+                <a href="/qr/{{$qrc['id']}}" target="_blank" class="uk-button uk-button-text"><i class="fas fa-eye"></i> Visit</a>
                 <a href="" class="uk-button uk-button-text uk-float-right uk-margin-small-left" uk-toggle="target: #modal-del-{{$qrc['id']}}"><i class="fas fa-trash-alt"></i> Delete</a>
+                <a href="" class="uk-button uk-button-text uk-float-right uk-margin-small-left" uk-toggle="target: #modal-grp-{{$qrc['id']}}"><i class="fas fa-layer-group"></i> Group</a>
                 <a href="" class="uk-button uk-button-text uk-float-right uk-margin-left" uk-toggle="target: #modal-{{$qrc['id']}}"><i class="fas fa-pencil-alt"></i> Edit</a>
             </div>
         </div>        

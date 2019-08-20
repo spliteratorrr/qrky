@@ -57,9 +57,18 @@ class QrkyFactory {
         // Iterate through each owned QRC by the user.
         foreach($qrcs as $qrc) {
             if ($qrc->id == $id) {
-                if (empty($d_date))
+                if (empty($d_date)) {
                     $d_date = NULL;
-
+                    if ($qrc->status == 1) {
+                        $qrc->status = 0;
+                    }
+                }
+                else {
+                    // Therefore it is deployed.
+                    if ($qrc->status == 0) {
+                        $qrc->status = 1;
+                    }
+                }
                 $qrc->name = $name;
                 $qrc->content = $content;
                 $qrc->content_type = $content_type;

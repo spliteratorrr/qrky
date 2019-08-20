@@ -18,8 +18,8 @@ Route::get('/', function () {
 Route::get('/qr/{id}', 'QRCodeController@show');
 
 Route::group(['middleware' => ['auth']], function() {
-    Route::get('/qrcs', 'QRCodeController@manage_qrcs_ug')->name('manage-qrcs-ug');
-    Route::get('/qrcs/{id}', 'QRCodeController@manage_qrcs_g')->name('manage-qrcs-g');
+    Route::get('/manage', 'QRCodeController@manage_qrcs_ug')->name('manage-qrcs-ug');
+    Route::get('/manage/grouped/{id}', 'QRCodeController@manage_qrcs_g')->name('manage-qrcs-g');
     
     Route::get('/groups', 'QRCodeController@manage_grps')->name('manage-grps');
     Route::get('/print', 'QRCodeController@qrc_printable')->name('print-qr');
