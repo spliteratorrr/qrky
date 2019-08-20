@@ -72,6 +72,7 @@
 
         @foreach($qrcs as $qrc)
             @include('elements.qrcard_edit')
+            @include('elements.qrcard_delete')
         @endforeach
 
         @include('elements.qrcard_create')
@@ -81,4 +82,5 @@
 
 @section('scripts')
     <script type="text/javascript" src="{{ asset('js/qrcard_edit.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/qrcard_delete.js')}}"></script>
 @endsection

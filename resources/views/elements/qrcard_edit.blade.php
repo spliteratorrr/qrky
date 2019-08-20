@@ -28,7 +28,7 @@
             <div class="uk-modal-header">
                 <h2 class="uk-modal-title uk-text-center uk-text-truncate">
                     <i class="fas fa-pencil-alt qrky-icon"></i>
-                    <span class="qrky-icon">...</span> {{ $qr_name }} </h2>
+                    <span class="qrky-icon"></span>Edit '{{ $qr_name }}' </h2>
             </div>
 
             <div class="uk-modal-body">

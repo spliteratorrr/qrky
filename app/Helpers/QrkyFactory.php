@@ -75,6 +75,21 @@ class QrkyFactory {
         // No ownership match. The hash ID was possibly tampered.
     }
 
+    public static function delete($id) {
+        $user = Auth::user();
+        $qrcs = self::get_user_qrcs($user);
+
+        // Iterate through each owned QRC by the user.
+        foreach($qrcs as $qrc) {
+            if ($qrc->id == $id) {
+                // Deletion success.
+                $qrc->delete();
+                return;
+            }
+        }
+        // No ownership match. The hash ID was possibly tampered.
+    }
+
     /**
      * Generates a preview image of the QR code; provided the hash ID.
      */

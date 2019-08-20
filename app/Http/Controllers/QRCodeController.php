@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Http\RedirectResponse;
+
 use App\User;
 use App\Qrky;
 use App\Group;
@@ -12,8 +14,15 @@ use QrkyFactory;
 
 class QRCodeController extends Controller
 {
-    public function show() {
-        return QrkyUtils::get_qrky_code();
+    public function show(Request $request) {
+        // Handle content type
+        $data = array();
+        switch($type) {
+            case 0:
+                return view('content.plaintext', ['d' => $data]);
+            case 1:
+                return Redirect::to($url);
+        }
     }
 
     /**
@@ -134,5 +143,11 @@ class QRCodeController extends Controller
             $loc,
             $deploy_date
         );
+    }
+
+    public function qrc_delete(Request $request) {
+        $id = $request->input('id');
+        // Deletes the QR code.
+        QrkyFactory::delete($id);
     }
 }
